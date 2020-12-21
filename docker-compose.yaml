@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  cpuminer-opt:
+    build:
+      context: .
+      args:
+        REPO: "git://github.com/JayDDee/cpuminer-opt.git"
+        # TODO other coin
+        COIN: "cpuchain"
+    image: "innovanon/cpuminer-opt:${DOCKER_TAG}"
+    deploy:
+      mode: replicated
+      replicas: 1
+      update-delay: 91s
+      #placement:
+      #  constraints: [node.role == worker]
+
